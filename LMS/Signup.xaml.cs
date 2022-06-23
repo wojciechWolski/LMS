@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace LMS
 {
@@ -22,6 +24,74 @@ namespace LMS
         public Signup()
         {
             InitializeComponent();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSignup_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (tboxUsername.Text.Length < 3)
+            {
+                MessageBox.Show("Login is too short! At least 3 characters.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                if (policy.IsValid(boxPassword.Password))
+                {
+                    SqlConnection conn = new SqlConnection();
+                    conn.ConnectionString = conn.ConnectionString = "data source = localhost ; database=library; integrated security=True";
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandText = "select * from Admins where username ='" + tboxUsername.Text + "'";
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        MessageBox.Show("Login already in use!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        if (boxPassword.Password != boxPassword2.Password)
+                        {
+                            MessageBox.Show("Passwords are different!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                        else
+                        {
+                            SqlCommand cmd2 = new SqlCommand("INSERT INTO Admins VALUES (@username, @password)", conn);
+                            cmd2.CommandType = CommandType.Text;
+                            cmd2.Parameters.AddWithValue("@username", tboxUsername.Text);
+                            cmd2.Parameters.AddWithValue("@password", boxPassword.Password);
+                            conn.Open();
+                            cmd2.ExecuteNonQuery();
+                            conn.Close();
+                            MessageBox.Show("Sign up successful!", "Confirmation", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Password is too weak! Check our password policy.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+            }
+
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            MainWindow mw = new MainWindow();
+            mw.Show();
         }
     }
 }
