@@ -50,8 +50,8 @@ namespace LMS
             if (ds.Tables[0].Rows.Count > 0)
             {
                 this.Hide();
-               //Panel pnl = new Panel();
-               // pnl.Show();
+                Panel pnl = new Panel();
+                pnl.Show();
             }
             else
             {
