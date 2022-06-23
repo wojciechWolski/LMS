@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -22,7 +23,11 @@ namespace LMS
         public static readonly DependencyProperty IsOpenProperty =
             DependencyProperty.Register("IsOpen", typeof(bool), typeof(HamburgerMenuControl),
                 new PropertyMetadata(false, OnIsOpenPropertyChanged));
-
+        public bool IsOpen
+        {
+            get { return (bool)GetValue(IsOpenProperty); }
+            set { SetValue(IsOpenProperty, value); }
+        }
         private static void OnIsOpenPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is HamburgerMenuControl hamburgerMenu)
@@ -45,31 +50,56 @@ namespace LMS
 
         private void CloseMenuAnimated()
         {
-            throw new NotImplementedException();
+            DoubleAnimation closingAnimation = new DoubleAnimation(0, OpenCloseDuration);
+            BeginAnimation(WidthProperty, closingAnimation);
         }
 
         private void OpenMenuAnimated()
         {
-            throw new NotImplementedException();
+            double contentWidth = GetDesiredContentWidth();
+
+            DoubleAnimation openingAnimation = new DoubleAnimation(contentWidth, OpenCloseDuration);
+            BeginAnimation(WidthProperty, openingAnimation);
         }
 
-        public bool IsOpen
+        private double GetDesiredContentWidth()
         {
-            get { return (bool)GetValue(IsOpenProperty); }
-            set { SetValue(IsOpenProperty, value); }
+            if(Content == null)
+            {
+                return 200;
+            }
+            Content.Measure(new Size(MaxWidth, MaxHeight));
+            double contentWidth = Content.DesiredSize.Width;
+            return contentWidth;
         }
+
+        public Duration OpenCloseDuration
+        {
+            get { return (Duration)GetValue(OpenCloseDurationProperty); }
+            set { SetValue(OpenCloseDurationProperty, value); }
+        }
+
+        public static readonly DependencyProperty OpenCloseDurationProperty =
+            DependencyProperty.Register("OpenCloseDuration", typeof(Duration), typeof(HamburgerMenuControl), 
+                new PropertyMetadata(Duration.Automatic));
+
 
 
         public static readonly DependencyProperty ContentProperty =
-        DependencyProperty.Register("Content", typeof(object), typeof(HamburgerMenuControl),
+        DependencyProperty.Register("Content", typeof(FrameworkElement), typeof(HamburgerMenuControl),
             new PropertyMetadata(null));
 
-        public object Content
+        public FrameworkElement Content
         {
-            get { return (object)GetValue(ContentProperty); }
+            get { return (FrameworkElement)GetValue(ContentProperty); }
             set { SetValue(ContentProperty, value); }
         }
 
+
+        public HamburgerMenuControl()
+        {
+            Width = 0;
+        }
         static HamburgerMenuControl()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(HamburgerMenuControl), new FrameworkPropertyMetadata(typeof(HamburgerMenuControl)));

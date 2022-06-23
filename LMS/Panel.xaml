@@ -11,19 +11,19 @@
         WindowState="Maximized"
         MouseDown="Window_MouseDown"
         >
-    <Border CornerRadius="2" BorderBrush="black" Opacity="0.7" Padding="0" Background="Transparent" BorderThickness="3">
+    <Border CornerRadius="2" BorderBrush="black" Opacity="0.7" Background="Transparent" BorderThickness="1">
         <StackPanel>
             <StackPanel.Background>
                 <ImageBrush ImageSource="C:\Users\DELL\source\repos\LMS\LMS\Images\color2.jpg"/>
             </StackPanel.Background>
-            <Border CornerRadius="10" BorderBrush="#C4CAD0" Opacity="0.9" Padding="6" Background="#878c8f" BorderThickness="3">
-                <Grid Background="#878c8f" Opacity="0.5">
+            <Border CornerRadius="0 0 10 0" BorderBrush="#C4CAD0" Opacity="0.9" Padding="6" Background="#878c8f" BorderThickness="3">
+                <Grid Background="#878c8f" Opacity="0.5" Height="70">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="70"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Height="40" HorizontalAlignment="Left" Click="Button_Click">Rozwiń</Button>
-                    <TextBlock FontWeight="DemiBold" Grid.Column="1" HorizontalAlignment="Center" FontSize="22">Library Management System</TextBlock>
+                    <Button Grid.Column="0" Height="50" HorizontalAlignment="Left" Click="Button_Click">Rozwiń</Button>
+                    <TextBlock FontWeight="Bold" FontStyle="Italic" Grid.Column="1" HorizontalAlignment="Center" Padding="0 10 50 0" FontSize="30">Library Management System</TextBlock>
 
                 </Grid>
             </Border>
@@ -34,17 +34,56 @@
                     <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
                 <local:HamburgerMenuControl 
-                    Background="#FCF7FF" 
-                    x:Name="burger" 
+                    Background="#dbdbdb" 
+                    Opacity="0.8"
+                    x:Name="burger"
+                    OpenCloseDuration="0:0:0:0.3"
                     IsOpen="False" 
-                    Grid.Column="0"
-                    BorderBrush="#dbdbdb"
-                    BorderThickness="0 0 2 0">
+                    Height="1000"
+                    BorderThickness="0 0 2 0"
+                    BorderBrush="black"
+                    >
+                    <local:HamburgerMenuControl.Resources>
+                        <Style TargetType="local:HamburgerMenuItem">
+                            <Setter Property="Padding" Value="12"/>
+                            <Setter Property="FontSize" Value="22"/>
+                            <Setter Property="FontStyle" Value="Italic"/>
+                            <Setter Property="FontWeight" Value="DemiBold"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="WhiteSmoke"/>
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter Property="Foreground" Value="WhiteSmoke"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                        
+                    </local:HamburgerMenuControl.Resources>
                     <local:HamburgerMenuControl.Content>
-                        <TextBlock Padding="10" FontSize="15">Introduction</TextBlock>
+                        <StackPanel Margin="0 0">
+                            <local:HamburgerMenuItem>
+                                <TextBlock Text="Introduction"/>
+                            </local:HamburgerMenuItem>
+                            <local:HamburgerMenuItem>
+                                <TextBlock Text="Books catalog"/>
+                            </local:HamburgerMenuItem>
+                            <local:HamburgerMenuItem>
+                                <TextBlock Text="Students"/>
+                            </local:HamburgerMenuItem>
+                            <local:HamburgerMenuItem>
+                                <TextBlock Text="Borrow a book"/>
+                            </local:HamburgerMenuItem>
+                            <local:HamburgerMenuItem>
+                                <TextBlock Text="Books details"/>
+                            </local:HamburgerMenuItem>
+                            <local:HamburgerMenuItem>
+                                <TextBlock Text="Exit"/>
+                            </local:HamburgerMenuItem>
+                        </StackPanel>
                     </local:HamburgerMenuControl.Content>
                 </local:HamburgerMenuControl>
-                <TextBlock Grid.Column="1" FontSize="22">Hello</TextBlock>
+                <TextBlock Grid.Column="1" FontSize="30" Padding="10">Hello</TextBlock>
             </Grid>
 
         </StackPanel>
