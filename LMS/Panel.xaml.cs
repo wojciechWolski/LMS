@@ -44,5 +44,26 @@ namespace LMS
           
             
         }
+
+        private void introHMI_Checked(object sender, RoutedEventArgs e)
+        {
+           if(this.tbGreet.Visibility == Visibility.Collapsed)
+            {
+                this.tbGreet.Visibility = Visibility.Visible;
+            }
+
+            // dgGreet.Text = "Welcome in Library Managment System. You can select functionality from the menu on your left.";
+        }
+
+        private void introHMI_Unchecked(object sender, RoutedEventArgs e)
+        {
+             
+            if(this.tbGreet.Visibility == Visibility.Visible)
+            {
+                this.tbGreet.Visibility = Visibility.Collapsed;
+            }
+                
+            
+        }
     }
 }

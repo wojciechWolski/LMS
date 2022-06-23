@@ -32,8 +32,8 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="2*"/>
+                    
                 </Grid.ColumnDefinitions>
                 <local:HamburgerMenuControl 
                     Background="#dbdbdb" 
@@ -60,23 +60,23 @@
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
-                        
+
                     </local:HamburgerMenuControl.Resources>
                     <local:HamburgerMenuControl.Content>
                         <StackPanel Margin="0 0">
-                            <local:HamburgerMenuItem>
+                            <local:HamburgerMenuItem x:Name="introHMI" Checked="introHMI_Checked" Unchecked="introHMI_Unchecked">
                                 <TextBlock Text="Introduction"/>
                             </local:HamburgerMenuItem>
-                            <local:HamburgerMenuItem>
+                            <local:HamburgerMenuItem x:Name="bcHMI">
                                 <TextBlock Text="Books catalog"/>
                             </local:HamburgerMenuItem>
-                            <local:HamburgerMenuItem>
+                            <local:HamburgerMenuItem x:Name="studentsHMI">
                                 <TextBlock Text="Students"/>
                             </local:HamburgerMenuItem>
-                            <local:HamburgerMenuItem>
+                            <local:HamburgerMenuItem x:Name="borrowHMI">
                                 <TextBlock Text="Borrow a book"/>
                             </local:HamburgerMenuItem>
-                            <local:HamburgerMenuItem>
+                            <local:HamburgerMenuItem x:Name="detailsHMI">
                                 <TextBlock Text="Books details"/>
                             </local:HamburgerMenuItem>
                             <local:HamburgerMenuItem x:Name="exitHMI" Checked="exitHMI_Checked">
@@ -85,7 +85,25 @@
                         </StackPanel>
                     </local:HamburgerMenuControl.Content>
                 </local:HamburgerMenuControl>
-                <TextBlock Name="tblockGreet" Grid.Column="1" FontSize="30" Padding="10"></TextBlock>
+                <TextBlock Name="tbGreet" TextWrapping="Wrap" Text="Welcome in the Library Managment System. 
+                           
+
+                           You can select functionality from the menu on your left. You are able to:
+                           -browse books in the catalog,
+                           
+                           
+                           -add new ones, 
+                           
+                                                           
+                           -lend books to students                                                                  
+                           
+                           -check their current and previous rentals and add new readers.
+                           
+                           
+                           Let's roll
+" Grid.Column="1" FontSize="30" Padding="10" HorizontalAlignment="Center" Visibility="Collapsed">
+                </TextBlock>
+
             </Grid>
 
         </StackPanel>
