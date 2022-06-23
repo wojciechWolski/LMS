@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
+using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace LMS
 {
@@ -39,25 +40,24 @@ namespace LMS
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "data source = localhost ; database=library; integrated security=True";
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conn;
-            cmd.CommandText = "select * from Admins where username ='" + tboxUsername.Text + "' and password ='" + boxPassword.Password + "'";
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            if (ds.Tables[0].Rows.Count > 0)
+            string connectionString = @"Data Source=localhost;Initial Catalog=library;Integrated Security=True";
+            using (LibdbContext db = new LibdbContext(connectionString))
             {
-                this.Hide();
-                Panel pnl = new Panel();
-                pnl.Show();
-            }
-            else
-            {
-                MessageBox.Show("Wrong username/password!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                var query = from u in db.Admins where u.Username == tboxUsername.Text && u.Password == boxPassword.Password select u;
+                if (query.Count() > 0)
+                {
+                    this.Hide();
+                    Panel pnl = new Panel();
+                    pnl.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Wrong username/password!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                
             }
         }
+
 
         private void btnSignup_Click(object sender, RoutedEventArgs e)
         {
