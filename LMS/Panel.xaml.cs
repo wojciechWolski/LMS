@@ -22,6 +22,7 @@ namespace LMS
         public Panel()
         {
             InitializeComponent();
+            
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -34,6 +35,11 @@ namespace LMS
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
+        }
+
+        private void exitHMI_Checked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

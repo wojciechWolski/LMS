@@ -77,13 +77,13 @@
                             <local:HamburgerMenuItem>
                                 <TextBlock Text="Books details"/>
                             </local:HamburgerMenuItem>
-                            <local:HamburgerMenuItem>
+                            <local:HamburgerMenuItem x:Name="exitHMI" Checked="exitHMI_Checked">
                                 <TextBlock Text="Exit"/>
                             </local:HamburgerMenuItem>
                         </StackPanel>
                     </local:HamburgerMenuControl.Content>
                 </local:HamburgerMenuControl>
-                <TextBlock Grid.Column="1" FontSize="30" Padding="10">Hello</TextBlock>
+                <TextBlock Name="tblockGreet" Grid.Column="1" FontSize="30" Padding="10"></TextBlock>
             </Grid>
 
         </StackPanel>
