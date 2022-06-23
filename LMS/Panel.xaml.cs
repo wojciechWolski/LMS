@@ -65,5 +65,25 @@ namespace LMS
                 
             
         }
+
+        private void bcHMI_Checked(object sender, RoutedEventArgs e)
+        {
+            if(this.btnAddBook.Visibility == Visibility.Collapsed)
+            {
+                this.bookImg.Visibility = Visibility.Visible;
+                this.btnViewBooks.Visibility=Visibility.Visible;
+                this.btnAddBook.Visibility=Visibility.Visible;
+            }
+        }
+
+        private void bcHMI_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (this.btnAddBook.Visibility == Visibility.Visible)
+            {
+                this.bookImg.Visibility = Visibility.Collapsed;
+                this.btnViewBooks.Visibility=Visibility.Collapsed;
+                this.btnAddBook.Visibility = Visibility.Collapsed;
+            }
+        }
     }
 }

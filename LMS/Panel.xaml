@@ -67,7 +67,7 @@
                             <local:HamburgerMenuItem x:Name="introHMI" Checked="introHMI_Checked" Unchecked="introHMI_Unchecked">
                                 <TextBlock Text="Introduction"/>
                             </local:HamburgerMenuItem>
-                            <local:HamburgerMenuItem x:Name="bcHMI">
+                            <local:HamburgerMenuItem x:Name="bcHMI" Checked="bcHMI_Checked" Unchecked="bcHMI_Unchecked">
                                 <TextBlock Text="Books catalog"/>
                             </local:HamburgerMenuItem>
                             <local:HamburgerMenuItem x:Name="studentsHMI">
@@ -75,6 +75,9 @@
                             </local:HamburgerMenuItem>
                             <local:HamburgerMenuItem x:Name="borrowHMI">
                                 <TextBlock Text="Borrow a book"/>
+                            </local:HamburgerMenuItem>
+                            <local:HamburgerMenuItem x:Name="returnHMI">
+                                <TextBlock Text="Return a book"/>
                             </local:HamburgerMenuItem>
                             <local:HamburgerMenuItem x:Name="detailsHMI">
                                 <TextBlock Text="Books details"/>
@@ -85,26 +88,12 @@
                         </StackPanel>
                     </local:HamburgerMenuControl.Content>
                 </local:HamburgerMenuControl>
-                <TextBlock Name="tbGreet" TextWrapping="Wrap" Text="Welcome in the Library Managment System. 
-                           
-
-                           You can select functionality from the menu on your left. You are able to:
-                           -browse books in the catalog,
-                           
-                           
-                           -add new ones, 
-                           
-                                                           
-                           -lend books to students,                                                                  
-                           
-                           -check their current and previous rentals,
-                                                                                  -add new readers.                 
-                           
-                           
-                           Let's roll
+                <TextBlock Name="tbGreet" TextWrapping="Wrap" Text="Welcome in the Library Managment System. You can select functionality from the menu on your left. You are able to: browse books in the catalog, add new ones, lend books to students, check their current and previous rentals, add new readers. Let's roll
 " Grid.Column="1" FontSize="30" Padding="10" HorizontalAlignment="Center" Visibility="Collapsed">
                 </TextBlock>
-
+                <Button Grid.Column="1" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Top" Name="btnAddBook" Content="Add New Book" Background="WhiteSmoke" Width="400" Height="40" BorderThickness="3" BorderBrush="#C4CAD0" Margin="12 50 12 12" Foreground="#A4969B" FontSize="15" Padding="5"></Button>
+                <Button Grid.Column="1" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Top" Name="btnViewBooks" Content="View Books" Background="WhiteSmoke" Width="400" Height="40" BorderThickness="3" BorderBrush="#C4CAD0" Margin="12 150 12 12" Foreground="#A4969B" FontSize="15" Padding="5"></Button>
+                <Image Grid.Column="1" Source="C:\Users\DELL\source\repos\LMS\LMS\Images\book.png" Name="bookImg" Width="400" Height="400" Visibility="Collapsed" HorizontalAlignment="Center" Margin="12 12 12 12"/>
             </Grid>
 
         </StackPanel>
