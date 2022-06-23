@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
+using LMS.Models;
 
 namespace LMS
 {
@@ -47,37 +48,34 @@ namespace LMS
             {
                 if (policy.IsValid(boxPassword.Password))
                 {
-                    SqlConnection conn = new SqlConnection();
-                    conn.ConnectionString = conn.ConnectionString = "data source = localhost ; database=library; integrated security=True";
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = conn;
-                    cmd.CommandText = "select * from Admins where username ='" + tboxUsername.Text + "'";
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataSet ds = new DataSet();
-                    da.Fill(ds);
-                    if (ds.Tables[0].Rows.Count > 0)
+                    string connectionString = @"Data Source=localhost;Initial Catalog=library;Integrated Security=True";
+                    using (LibdbContext db = new LibdbContext(connectionString))
                     {
-                        MessageBox.Show("Login already in use!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    else
-                    {
-                        if (boxPassword.Password != boxPassword2.Password)
+                        var query = from u in db.Admins where u.Username == tboxUsername.Text && u.Password == boxPassword.Password select u;
+                        if (query.Count() > 0)
                         {
-                            MessageBox.Show("Passwords are different!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show("Login already in use!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                         else
                         {
-                            SqlCommand cmd2 = new SqlCommand("INSERT INTO Admins VALUES (@username, @password)", conn);
-                            cmd2.CommandType = CommandType.Text;
-                            cmd2.Parameters.AddWithValue("@username", tboxUsername.Text);
-                            cmd2.Parameters.AddWithValue("@password", boxPassword.Password);
-                            conn.Open();
-                            cmd2.ExecuteNonQuery();
-                            conn.Close();
-                            MessageBox.Show("Sign up successful!", "Confirmation", MessageBoxButton.OK, MessageBoxImage.Information);
+                            if (boxPassword.Password != boxPassword2.Password)
+                            {
+                                MessageBox.Show("Passwords are different!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                            else
+                            {
+                                db.Add(new Admin
+                                {
+                                    Username = tboxUsername.Text,
+                                    Password = boxPassword.Password,
+                                });
+                                db.SaveChanges();
+                                MessageBox.Show("Sign up successful!", "Confirmation", MessageBoxButton.OK, MessageBoxImage.Information);
+                            }
                         }
                     }
                 }
+
                 else
                 {
                     MessageBox.Show("Password is too weak! Check our password policy.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
