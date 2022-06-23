@@ -17,13 +17,15 @@
                 <ImageBrush ImageSource="C:\Users\DELL\source\repos\LMS\LMS\Images\color2.jpg"/>
             </StackPanel.Background>
             <Border CornerRadius="0 0 10 0" BorderBrush="#C4CAD0" Opacity="0.9" Padding="6" Background="#878c8f" BorderThickness="3">
-                <Grid Background="#878c8f" Opacity="0.5" Height="70">
+                <Grid Background="#878c8f" Opacity="0.5" Height="75">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="70"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Height="50" HorizontalAlignment="Left" Click="Button_Click">Rozwiń</Button>
-                    <TextBlock FontWeight="Bold" FontStyle="Italic" Grid.Column="1" HorizontalAlignment="Center" Padding="0 10 50 0" FontSize="30">Library Management System</TextBlock>
+                    <Button Grid.Column="0" Height="70" HorizontalAlignment="Left" Click="Button_Click" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+                        <Image Source="C:\Users\DELL\source\repos\LMS\LMS\Images\menu.png"></Image>
+                    </Button>
+                    <TextBlock FontWeight="Bold" FontStyle="Italic" Grid.Column="1" HorizontalAlignment="Center" Padding="0 10 50 0" FontSize="40">Library Management System</TextBlock>
 
                 </Grid>
             </Border>
