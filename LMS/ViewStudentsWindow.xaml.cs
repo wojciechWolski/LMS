@@ -76,7 +76,29 @@ namespace LMS
 
         private void btnManageGo_Click(object sender, RoutedEventArgs e)
         {
-
+            if (int.TryParse(tbIdManage.Text, out int stdId))
+            {
+                StudentId = stdId;
+                string connectionString = @"Data Source=localhost;Initial Catalog=library;Integrated Security=True";
+                using (LibdbContext db = new LibdbContext(connectionString))
+                {
+                    var query = from u in db.Students where StudentId == u.Id select u;
+                    if (query.Count() == 0)
+                    {
+                        MessageBox.Show("There is no such id in the student database!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        this.Hide();
+                        StudentManageWindow smw = new StudentManageWindow();
+                        smw.Show();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Number is expected!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
