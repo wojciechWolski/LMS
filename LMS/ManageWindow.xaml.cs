@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LMS.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,13 +56,16 @@ namespace LMS
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
-        {
-            if(MessageBox.Show("Are you sure you want to delete this item?","Confirmation",MessageBoxButton.YesNoCancel,MessageBoxImage.Question) == MessageBoxResult.Yes)
+        { 
+            if (MessageBox.Show("Are you sure you want to delete this item?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-              /*  using (LibdbContext db = new LibdbContext(connectionString)
+                using (LibdbContext db = new LibdbContext(connectionString))
                 {
-                    throw new NotImplementedException();
-                }*/
+                    Book book = db.Books.Where(u => u.Id == bookIdToManage).First();
+                    db.Remove(book);
+                    db.SaveChanges();
+                    MessageBox.Show("Item deleted successfully!", "Confirmation", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
 
 
