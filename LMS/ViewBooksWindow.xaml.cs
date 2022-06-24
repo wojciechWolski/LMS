@@ -23,6 +23,8 @@ namespace LMS
     {
         readonly string connectionString = @"Data Source=localhost;Initial Catalog=library;Integrated Security=True";
 
+        public static int BookId { get; internal set; }
+
         public ViewBooksWindow()
         {
             InitializeComponent();
@@ -41,7 +43,7 @@ namespace LMS
         {
             using (LibdbContext db = new LibdbContext(connectionString))
             {
-                var query = from bk in db.Books where tbBookToFind.Text == bk.Title select new { bk.Title, bk.Author, bk.Genre, bk.PublicationHouse };
+                var query = from bk in db.Books where tbBookToFind.Text == bk.Title select new { bk.Id, bk.Title, bk.Author, bk.Genre, bk.PublicationHouse };
                 dgBookView.ItemsSource = query.ToList();
             }
         }
@@ -60,7 +62,7 @@ namespace LMS
         {
             using (LibdbContext db = new LibdbContext(connectionString))
             {
-                var query = from bk in db.Books select new { bk.Title, bk.Author, bk.Genre, bk.PublicationHouse };
+                var query = from bk in db.Books select new { bk.Id, bk.Title, bk.Author, bk.Genre, bk.PublicationHouse };
                 dgBookView.ItemsSource = query.ToList();
             }
         }
@@ -76,7 +78,31 @@ namespace LMS
             }
         }
 
-
- 
+        private void btnManageGo_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.TryParse(tbIdManage.Text, out int bokId))
+            {
+                BookId = bokId;
+                string connectionString = @"Data Source=localhost;Initial Catalog=library;Integrated Security=True";
+                using (LibdbContext db = new LibdbContext(connectionString))
+                {
+                    var query = from u in db.Books where BookId == u.Id select u;
+                    if(query.Count() == 0)
+                    {
+                        MessageBox.Show("There is no such id in the book database!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        this.Hide();
+                        ManageWindow mw = new ManageWindow();
+                        mw.Show();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Number is expected!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
