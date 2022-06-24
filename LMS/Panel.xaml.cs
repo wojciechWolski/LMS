@@ -91,5 +91,11 @@ namespace LMS
             AddBookWindow abw = new AddBookWindow();
             abw.Show();
         }
+
+        private void btnViewBooks_Click(object sender, RoutedEventArgs e)
+        {
+            ViewBooksWindow vbw = new ViewBooksWindow();
+            vbw.Show();
+        }
     }
 }
