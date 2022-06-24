@@ -70,7 +70,7 @@
                             <local:HamburgerMenuItem x:Name="bcHMI" Checked="bcHMI_Checked" Unchecked="bcHMI_Unchecked">
                                 <TextBlock Text="Books catalog"/>
                             </local:HamburgerMenuItem>
-                            <local:HamburgerMenuItem x:Name="studentsHMI">
+                            <local:HamburgerMenuItem x:Name="studentsHMI" Checked="studentsHMI_Checked" Unchecked="studentsHMI_Unchecked">
                                 <TextBlock Text="Students"/>
                             </local:HamburgerMenuItem>
                             <local:HamburgerMenuItem x:Name="borrowHMI">
@@ -94,6 +94,10 @@
                 <Button Grid.Column="1" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Top" Name="btnAddBook" Content="Add New Book" Background="WhiteSmoke" Width="400" Height="40" BorderThickness="3" BorderBrush="#C4CAD0" Margin="12 50 12 12" Foreground="#A4969B" FontSize="15" Padding="5" Click="btnAddBook_Click"></Button>
                 <Button Grid.Column="1" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Top" Name="btnViewBooks" Content="View/Manage Books" Background="WhiteSmoke" Width="400" Height="40" BorderThickness="3" BorderBrush="#C4CAD0" Margin="12 150 12 12" Foreground="#A4969B" FontSize="15" Padding="5" Click="btnViewBooks_Click"></Button>
                 <Image Grid.Column="1" Source="C:\Users\DELL\source\repos\LMS\LMS\Images\book.png" Name="bookImg" Width="400" Height="400" Visibility="Collapsed" HorizontalAlignment="Center" Margin="12 12 12 12"/>
+
+                <Button Grid.Column="1" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Top" Name="btnAddStudent" Content="Add New Student" Background="WhiteSmoke" Width="400" Height="40" BorderThickness="3" BorderBrush="#C4CAD0" Margin="12 50 12 12" Foreground="#A4969B" FontSize="15" Padding="5" Click="btnAddStudent_Click"></Button>
+                <Button Grid.Column="1" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Top" Name="btnViewStudents" Content="View/Manage Students" Background="WhiteSmoke" Width="400" Height="40" BorderThickness="3" BorderBrush="#C4CAD0" Margin="12 150 12 12" Foreground="#A4969B" FontSize="15" Padding="5" Click="btnViewStudents_Click"></Button>
+                <Image Grid.Column="1" Source="C:\Users\DELL\source\repos\LMS\LMS\Images\students.png" Name="studentImg" Width="400" Height="400" Visibility="Collapsed" HorizontalAlignment="Center" Margin="12 0 12 120"/>
             </Grid>
 
         </StackPanel>

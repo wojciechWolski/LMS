@@ -97,5 +97,36 @@ namespace LMS
             ViewBooksWindow vbw = new ViewBooksWindow();
             vbw.Show();
         }
+
+        private void studentsHMI_Checked(object sender, RoutedEventArgs e)
+        {
+            if (this.btnAddStudent.Visibility == Visibility.Collapsed)
+            {
+                this.studentImg.Visibility = Visibility.Visible;
+                this.btnViewStudents.Visibility = Visibility.Visible;
+                this.btnAddStudent.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void studentsHMI_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (this.btnAddStudent.Visibility == Visibility.Visible)
+            {
+                this.studentImg.Visibility = Visibility.Collapsed;
+                this.btnViewStudents.Visibility = Visibility.Collapsed;
+                this.btnAddStudent.Visibility = Visibility.Collapsed;
+            }
+
+        }
+
+        private void btnAddStudent_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnViewStudents_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
