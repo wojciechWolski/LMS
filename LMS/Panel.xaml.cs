@@ -85,5 +85,11 @@ namespace LMS
                 this.btnAddBook.Visibility = Visibility.Collapsed;
             }
         }
+
+        private void btnAddBook_Click(object sender, RoutedEventArgs e)
+        {
+            AddBookWindow abw = new AddBookWindow();
+            abw.Show();
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace LMS
     public class LibdbContext : DbContext
     {
         public DbSet<Admin> Admins { get; set; } = null!;
-        public DbSet<Post> Posts { get; set; } = null!;
+        public DbSet<Book> Books { get; set; } = null!;
 
         public string ConnectionString { get; }
 
@@ -28,14 +28,5 @@ namespace LMS
     }
 
 
-    public class Post
-    {
-        public long Id { get; set; }
-        public string Title { get; set; } = null!;
-        public string Content { get; set; } = null!;
-
-        public long BlogId { get; set; }
-        
-    }
 }
 
