@@ -121,7 +121,8 @@ namespace LMS
 
         private void btnAddStudent_Click(object sender, RoutedEventArgs e)
         {
-
+            AddStudentWindow asw = new AddStudentWindow();
+            asw.Show();
         }
 
         private void btnViewStudents_Click(object sender, RoutedEventArgs e)
