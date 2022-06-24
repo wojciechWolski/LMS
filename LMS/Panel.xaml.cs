@@ -127,7 +127,8 @@ namespace LMS
 
         private void btnViewStudents_Click(object sender, RoutedEventArgs e)
         {
-
+            ViewStudentsWindow vsw = new ViewStudentsWindow();
+            vsw.Show();
         }
     }
 }
