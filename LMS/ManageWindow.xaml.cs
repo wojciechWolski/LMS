@@ -65,16 +65,29 @@ namespace LMS
                     db.Remove(book);
                     db.SaveChanges();
                     MessageBox.Show("Item deleted successfully!", "Confirmation", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var query = from bk in db.Books where bk.Id == bookIdToManage select new { bk.Id, bk.Title, bk.Author, bk.Genre, bk.PublicationHouse };
+                    dgCurrent.ItemsSource = query.ToList();
                 }
             }
-
-
 
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            using (LibdbContext db = new LibdbContext(connectionString))
+            {
+                if (MessageBox.Show("Are you sure you want to edit this item?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    Book book = db.Books.Where(u => u.Id == bookIdToManage).First();
+                    book.Title = tbBName.Text;
+                    book.Author = tbAuthor.Text;
+                    book.Genre = tbGenre.Text;
+                    book.PublicationHouse = tbPublish.Text;
+                    db.SaveChanges();
+                    var query = from bk in db.Books where bk.Id == bookIdToManage select new { bk.Id, bk.Title, bk.Author, bk.Genre, bk.PublicationHouse };
+                    dgCurrent.ItemsSource = query.ToList();
+                }
+            }
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
