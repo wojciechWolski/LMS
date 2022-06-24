@@ -51,7 +51,7 @@ namespace LMS
                     string connectionString = @"Data Source=localhost;Initial Catalog=library;Integrated Security=True";
                     using (LibdbContext db = new LibdbContext(connectionString))
                     {
-                        var query = from u in db.Admins where u.Username == tboxUsername.Text && u.Password == boxPassword.Password select u;
+                        var query = from u in db.Admins where u.Username == tboxUsername.Text select u;
                         if (query.Count() > 0)
                         {
                             MessageBox.Show("Login already in use!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
