@@ -13,6 +13,7 @@ namespace LMS
     {
         public DbSet<Admin> Admins { get; set; } = null!;
         public DbSet<Book> Books { get; set; } = null!;
+        public DbSet<Student> Students { get; set; } = null!;
 
         public string ConnectionString { get; }
 
