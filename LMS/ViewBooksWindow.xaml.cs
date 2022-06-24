@@ -1,5 +1,7 @@
-﻿using System;
+﻿using LMS.Models;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,7 +50,7 @@ namespace LMS
         {
             using (LibdbContext db = new LibdbContext(connectionString))
             {
-                var query = from bk in db.Books select new { bk.Title, bk.Author, bk.Genre, bk.PublicationHouse };
+                var query = from bk in db.Books select new { bk.Id, bk.Title, bk.Author, bk.Genre, bk.PublicationHouse };
                 dgBookView.ItemsSource = query.ToList();
             }
                 
@@ -62,5 +64,19 @@ namespace LMS
                 dgBookView.ItemsSource = query.ToList();
             }
         }
+        private void btnManage_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.manageGrid.Visibility == Visibility.Visible)
+            {
+                this.manageGrid.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                this.manageGrid.Visibility = Visibility.Visible;
+            }
+        }
+
+
+ 
     }
 }
