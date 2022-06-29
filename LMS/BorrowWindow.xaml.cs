@@ -68,15 +68,52 @@ namespace LMS
 
         private void btnLend_Click(object sender, RoutedEventArgs e)
         {
-            if(tbFirst.Text == "")
+            if (tbFirst.Text == "")
             {
-                throw new NotImplementedException();
+                MessageBox.Show("Enter the student's data!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (tbTitle.Text == "")
+            {
+                MessageBox.Show("Enter the book's title!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (tbDate.Text == "")
+            {
+                MessageBox.Show("Enter the date!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
-                throw new NotImplementedException();
+                
+                using (LibdbContext db = new LibdbContext(connectionString))
+                {
+                    var bookcheck = from u in db.Books where u.Title == tbTitle.Text select u;
+                    var stdcheck = from st in db.Students where st.EnrollmentNumber == tboxFindEnrollment.Text select st;
+                    var stdlend = stdcheck.First();
+                    var booklend = bookcheck.First();
+                    if (bookcheck.Count() > 0)
+                    {
+                        db.Add(new Borrow
+                        {
+                            BookId = booklend.Id,
+                            StudentId = stdlend.Id,
+                            StudentEnroll = stdlend.EnrollmentNumber,
+                            BookTitle = booklend.Title,
+                            BookLend = (DateTime)tbDate.SelectedDate,
 
+                        });
+                        db.SaveChanges();
+                        MessageBox.Show("Book successfully lended!", "Confirmation", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("There is no such book in book's database!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
             }
+        }
+
+        private void tbDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SelectedDateTextBox.Text = tbDate.SelectedDate.ToString();
         }
     }
 }

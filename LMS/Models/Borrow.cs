@@ -11,7 +11,10 @@ namespace LMS.Models
         public int Id { get; set; }
         public int BookId { get; set; }
         public int StudentId { get; set; }
-        public DateOnly BookLend { get; set; }
-        public DateOnly BookReturn { get; set; }
+        public string BookTitle { get; set; } = null!;
+        public string StudentEnroll { get; set; } = null!;
+        
+        public DateTime BookLend { get; set; }
+        public DateTime BookReturn { get; set; }
     }
 }
