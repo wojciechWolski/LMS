@@ -130,5 +130,18 @@ namespace LMS
             ViewStudentsWindow vsw = new ViewStudentsWindow();
             vsw.Show();
         }
+
+        private void borrowHMI_Checked(object sender, RoutedEventArgs e)
+        {
+            if (this.borrowImg.Visibility == Visibility.Collapsed)
+                this.borrowImg.Visibility = Visibility.Visible;
+        }
+
+        private void borrowHMI_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (this.borrowImg.Visibility == Visibility.Visible)
+                    this.borrowImg.Visibility = Visibility.Collapsed;
+
+        }
     }
 }
