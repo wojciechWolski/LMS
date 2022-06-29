@@ -135,6 +135,8 @@ namespace LMS
         {
             if (this.borrowImg.Visibility == Visibility.Collapsed)
                 this.borrowImg.Visibility = Visibility.Visible;
+            BorrowWindow bw = new BorrowWindow();
+            bw.Show();
         }
 
         private void borrowHMI_Unchecked(object sender, RoutedEventArgs e)

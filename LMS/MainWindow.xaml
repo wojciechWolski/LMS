@@ -16,7 +16,7 @@
         <StackPanel Background="#FCF7FF">
             <Button Name="btnClose" Padding="1" FontSize="20" Content="X" Width="25" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Transparent" Foreground="Red" BorderThickness="0" Click="btnClose_Click"></Button>
             <Image Margin="0 2 0 25" Width="180px" Height="180px" Source="C:\Users\DELL\source\repos\LMS2\LMS\Images\log.png"/>
-            <TextBlock HorizontalAlignment="Center" FontSize="26" FontWeight="DemiBold" FontStyle="Italic" Foreground="#A4969B">Welcome back</TextBlock>
+            <TextBlock HorizontalAlignment="Center" FontSize="26" FontWeight="DemiBold" FontStyle="Italic" Foreground="#A4969B">Welcome again</TextBlock>
             <Border Margin="0 10" BorderThickness="1" BorderBrush="#C4CAD0"></Border>
             <TextBlock Margin="0 6" HorizontalAlignment="Center" FontSize="26" FontWeight="DemiBold" Foreground="#A4969B" FontStyle="Italic">Log in</TextBlock>
             <Grid>

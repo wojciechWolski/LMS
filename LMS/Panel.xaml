@@ -68,16 +68,16 @@
                                 <TextBlock Text="Introduction"/>
                             </local:HamburgerMenuItem>
                             <local:HamburgerMenuItem x:Name="bcHMI" Checked="bcHMI_Checked" Unchecked="bcHMI_Unchecked">
-                                <TextBlock Text="Books catalog"/>
+                                <TextBlock Text="Book's catalog"/>
                             </local:HamburgerMenuItem>
                             <local:HamburgerMenuItem x:Name="studentsHMI" Checked="studentsHMI_Checked" Unchecked="studentsHMI_Unchecked">
                                 <TextBlock Text="Students"/>
                             </local:HamburgerMenuItem>
                             <local:HamburgerMenuItem x:Name="borrowHMI" Checked="borrowHMI_Checked" Unchecked="borrowHMI_Unchecked">
-                                <TextBlock Text="Borrow a book"/>
+                                <TextBlock Text="Lend"/>
                             </local:HamburgerMenuItem>
                             <local:HamburgerMenuItem x:Name="returnHMI">
-                                <TextBlock Text="Return a book"/>
+                                <TextBlock Text="Return"/>
                             </local:HamburgerMenuItem>
                             <local:HamburgerMenuItem x:Name="detailsHMI">
                                 <TextBlock Text="Books details"/>
