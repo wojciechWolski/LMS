@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LMS.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,12 +65,38 @@ namespace LMS
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            if (MessageBox.Show("Are you sure you want to delete this student?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                using (LibdbContext db = new LibdbContext(connectionString))
+                {
+                    Student student = db.Students.Where(u => u.Id == studentIdToManage).First();
+                    db.Remove(student);
+                    db.SaveChanges();
+                    MessageBox.Show("Student deleted successfully!", "Confirmation", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var query = from st in db.Students where studentIdToManage == st.Id select new { st.Id, st.FirstName, st.LastName, st.Department, st.EnrollmentNumber, st.PhoneNumber, st.Email };
+                    dgCurrent.ItemsSource = query.ToList();
+                }
+            }
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            using (LibdbContext db = new LibdbContext(connectionString))
+            {
+                if (MessageBox.Show("Are you sure you want to edit this student's info?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    Student student = db.Students.Where(u => u.Id == studentIdToManage).First();
+                    student.FirstName = tbFirst.Text;
+                    student.LastName = tbLast.Text;
+                    student.EnrollmentNumber = tbEnrollment.Text;
+                    student.Department = tbDepartment.Text;
+                    student.PhoneNumber = tbPhoneNumber.Text;
+                    student.Email = tbEmail.Text;
+                    db.SaveChanges();
+                    var query = from st in db.Students where studentIdToManage == st.Id select new { st.Id, st.FirstName, st.LastName, st.Department, st.EnrollmentNumber, st.PhoneNumber, st.Email };
+                    dgCurrent.ItemsSource = query.ToList();
+                }
+            }
         }
     }
 }

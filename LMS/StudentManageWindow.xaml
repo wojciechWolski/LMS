@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LMS"
         mc:Ignorable="d"
-        Title="StudentManageWindow" Height="680" Width="600"
+        Title="StudentManageWindow" Height="680" Width="700"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
