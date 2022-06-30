@@ -50,9 +50,9 @@ namespace LMS
            if(this.tbGreet.Visibility == Visibility.Collapsed)
             {
                 this.tbGreet.Visibility = Visibility.Visible;
+                this.tbGreet2.Visibility = Visibility.Visible;
             }
 
-            // dgGreet.Text = "Welcome in Library Managment System. You can select functionality from the menu on your left.";
         }
 
         private void introHMI_Unchecked(object sender, RoutedEventArgs e)
@@ -61,6 +61,7 @@ namespace LMS
             if(this.tbGreet.Visibility == Visibility.Visible)
             {
                 this.tbGreet.Visibility = Visibility.Collapsed;
+                this.tbGreet2.Visibility = Visibility.Collapsed;
             }
                 
             
@@ -144,6 +145,18 @@ namespace LMS
             if (this.borrowImg.Visibility == Visibility.Visible)
                     this.borrowImg.Visibility = Visibility.Collapsed;
 
+        }
+
+        private void returnHMI_Checked(object sender, RoutedEventArgs e)
+        {
+            if (this.returnImg.Visibility == Visibility.Collapsed)
+                this.returnImg.Visibility = Visibility.Visible;
+        }
+
+        private void returnHMI_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (this.returnImg.Visibility == Visibility.Visible)
+                this.returnImg.Visibility = Visibility.Collapsed;
         }
     }
 }
