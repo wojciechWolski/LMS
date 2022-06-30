@@ -15,7 +15,9 @@
     <Border CornerRadius="20" BorderBrush="#C4CAD0" BorderThickness="5" Padding="6" Background="#FCF7FF">
         <ScrollViewer HorizontalScrollBarVisibility="Auto" Background="#FCF7FF" Foreground="#FCF7FF">
             <StackPanel Background="#FCF7FF">
-                <Button Name="btnClose" Padding="1" FontSize="25" Content="X" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Transparent" Foreground="Red" BorderThickness="0" Click="btnClose_Click"></Button>
+                <Button Name="btnClose" Padding="1" FontSize="20" Width="25" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" Click="btnClose_Click">
+                    <Image Source="C:\Users\DELL\source\repos\LMS2\LMS\Images\exit2.png"></Image>
+                </Button>
                 <TextBlock Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="26" FontWeight="DemiBold" FontStyle="Italic" Foreground="#A4969B">Manage students panel</TextBlock>
                 <Border Margin="0 10" BorderThickness="1" BorderBrush="#C4CAD0"></Border>
                 <TextBlock HorizontalAlignment="Center" Grid.Column="0" FontSize="25" FontWeight="DemiBold" Margin="0 10 0 10" FontStyle="Italic" Foreground="#A4969B">Student's last name:</TextBlock>

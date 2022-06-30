@@ -14,7 +14,9 @@
         ResizeMode="NoResize">
     <Border CornerRadius="20" BorderBrush="#C4CAD0" BorderThickness="5" Padding="6" Background="#FCF7FF">
         <StackPanel Background="#FCF7FF" >
-            <Button Name="btnClose" Padding="1" FontSize="20" Content="X" Width="25" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Transparent" Foreground="Red" BorderThickness="0" Click="btnClose_Click"></Button>
+            <Button Name="btnClose" Padding="1" FontSize="20" Width="25" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" Click="btnClose_Click">
+                <Image Source="C:\Users\DELL\source\repos\LMS2\LMS\Images\exit2.png"></Image>
+            </Button>
             <Image Margin="0 2 0 25" Width="180px" Height="180px" Source="C:\Users\DELL\source\repos\LMS2\LMS\Images\signup.jpg"/>
             <TextBlock HorizontalAlignment="Center" FontSize="26" FontWeight="DemiBold" FontStyle="Italic" Foreground="#A4969B">Let's sign up!</TextBlock>
             <Border Margin="0 10" BorderThickness="1" BorderBrush="#C4CAD0"></Border>
