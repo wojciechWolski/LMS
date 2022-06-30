@@ -91,6 +91,7 @@ namespace LMS
                     var booklend = bookcheck.First();
                     if (bookcheck.Count() > 0)
                     {
+                        DateTime? rtn = null;
                         db.Add(new Borrow
                         {
                             BookId = booklend.Id,
@@ -98,8 +99,9 @@ namespace LMS
                             StudentEnroll = stdlend.EnrollmentNumber,
                             BookTitle = booklend.Title,
                             BookLend = (DateTime)tbDate.SelectedDate,
+                            BookReturn = rtn
 
-                        });
+                        }) ;
                         db.SaveChanges();
                         MessageBox.Show("Book successfully lended!", "Confirmation", MessageBoxButton.OK, MessageBoxImage.Information);
                     }

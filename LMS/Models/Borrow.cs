@@ -15,6 +15,6 @@ namespace LMS.Models
         public string StudentEnroll { get; set; } = null!;
         
         public DateTime BookLend { get; set; }
-        public DateTime BookReturn { get; set; }
+        public DateTime? BookReturn { get; set; }
     }
 }
