@@ -40,10 +40,11 @@ namespace LMS
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            var pass = boxPassword.Password.GetHashCode();
             string connectionString = @"Data Source=localhost;Initial Catalog=library;Integrated Security=True";
             using (LibdbContext db = new LibdbContext(connectionString))
             {
-                var query = from u in db.Admins where u.Username == tboxUsername.Text && u.Password == boxPassword.Password select u;
+                var query = from u in db.Admins where u.Username == tboxUsername.Text && u.Password == pass.ToString() select u;
                 if (query.Count() > 0)
                 {
                     this.Hide();

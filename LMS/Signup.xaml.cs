@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
 using LMS.Models;
+using System.Security.Cryptography;
 
 namespace LMS
 {
@@ -64,11 +65,13 @@ namespace LMS
                             }
                             else
                             {
+                                var pass = boxPassword.Password.GetHashCode();
+                                
                                 db.Add(new Admin
                                 {
                                     Username = tboxUsername.Text,
-                                    Password = boxPassword.Password,
-                                });
+                                    Password = pass.ToString(),
+                                });;
                                 db.SaveChanges();
                                 MessageBox.Show("Sign up successful!", "Confirmation", MessageBoxButton.OK, MessageBoxImage.Information);
                             }
