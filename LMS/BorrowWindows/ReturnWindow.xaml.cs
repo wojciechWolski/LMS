@@ -38,7 +38,9 @@ namespace LMS.BorrowWindows
                 this.DragMove();
 
         }
-
+        /// <summary>
+        /// Metoda wypełniania comboboxa nieoddanymi książkami przypisanymi do użytkownika
+        /// </summary>
         private void BindCombo()
         {
             using (LibdbContext db = new LibdbContext(connectionString))
@@ -53,7 +55,11 @@ namespace LMS.BorrowWindows
             }
 
         }
-
+        /// <summary>
+        /// Metoda wypełniająca pola danymi studenta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FindEnrollment_Click(object sender, RoutedEventArgs e)
         {
             using (LibdbContext db = new LibdbContext(connectionString))
@@ -85,7 +91,11 @@ namespace LMS.BorrowWindows
             ReturnViewWindow rvw = new ReturnViewWindow();
             rvw.Show();
         }
-
+        /// <summary>
+        /// Metoda dodająca datę zwrotu do konkretnego rekordu w bazie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnReturn_Click(object sender, RoutedEventArgs e)
         {
             if(cbRent.Text != "")

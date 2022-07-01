@@ -73,7 +73,11 @@ namespace LMS
                 this.manageGrid.Visibility = Visibility.Visible;
             }
         }
-
+        /// <summary>
+        /// Metoda po walidacji id studenta przenosi nas do okna zarządzania rekordem
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnManageGo_Click(object sender, RoutedEventArgs e)
         {
             if (int.TryParse(tbIdManage.Text, out int stdId))

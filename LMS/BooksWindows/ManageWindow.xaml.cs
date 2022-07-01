@@ -20,7 +20,7 @@ namespace LMS
     /// </summary>
     public partial class ManageWindow : Window
     {
-        string connectionString = @"Data Source=localhost;Initial Catalog=library;Integrated Security=True";
+        readonly string connectionString = @"Data Source=localhost;Initial Catalog=library;Integrated Security=True";
         int bookIdToManage = ViewBooksWindow.BookId;
         public ManageWindow()
         {
@@ -37,6 +37,12 @@ namespace LMS
         {
             this.Close();
         }
+
+        /// <summary>
+        /// Wyświetlanie zarządzanej aktualnie książki w DataGrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             using (LibdbContext db = new LibdbContext(connectionString))
@@ -55,6 +61,11 @@ namespace LMS
             tbPublish.Text = "";
         }
 
+        /// <summary>
+        /// Usuwanie aktualnie zarządzanej książki z bazy danych
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         { 
             if (MessageBox.Show("Are you sure you want to delete this item?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
@@ -72,6 +83,11 @@ namespace LMS
 
         }
 
+        /// <summary>
+        /// Edycja aktualnie zarządzanej książki
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             using (LibdbContext db = new LibdbContext(connectionString))

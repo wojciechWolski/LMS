@@ -67,7 +67,11 @@ namespace LMS
                 dgBorrowView.ItemsSource = view.ToList();
             }
         }
-
+        /// <summary>
+        /// Metoda wyszukiwania rekordów z bazy po tytule bądź numerze albumu (jeśli dane z textboxa można przekonwertować na int, znaczy że to numer albumu, jeśli nie, tzn że to nazwisko)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFind_Click(object sender, RoutedEventArgs e)
         {
             if (int.TryParse(tbEnTitFind.Text, out int enrollNmb))

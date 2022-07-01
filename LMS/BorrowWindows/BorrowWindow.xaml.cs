@@ -65,7 +65,11 @@ namespace LMS
 
             }
         }
-
+        /// <summary>
+        /// Metoda wypożyczania książek - po wypełnieniu pól, dodaje dane o wypożyczeniu do bazy danych
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLend_Click(object sender, RoutedEventArgs e)
         {
             if (tbFirst.Text == "")

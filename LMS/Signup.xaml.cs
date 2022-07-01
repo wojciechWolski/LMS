@@ -27,12 +27,21 @@ namespace LMS
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Hashowanie hasła
+        /// </summary>
+        /// <param name="inputString"></param>
+        /// <returns></returns>
         public static byte[] GetHash(string inputString)
         {
             using (HashAlgorithm algorithm = SHA256.Create())
                 return algorithm.ComputeHash(Encoding.UTF8.GetBytes(inputString));
         }
+        /// <summary>
+        /// Zahashowane hasło do stringa
+        /// </summary>
+        /// <param name="inputString"></param>
+        /// <returns></returns>
         public static string GetHashString(string inputString)
         {
             StringBuilder sb = new StringBuilder();
@@ -41,17 +50,31 @@ namespace LMS
 
             return sb.ToString();
         }
-
+        /// <summary>
+        /// Metoda aktywowana po przytrzymaniu przycisku na oknie, umożliwiająca poruszanie okienkiem po ekranie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
+        /// <summary>
+        /// Metoda aktywowana po kliknięciu - zamykająca bieżące okno
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Metoda aktywowana przyciskiem - umożliwiająca rejestację. Po uzyskaniu walidacji loginu oraz hasła, łączy się z bazą, aby dodać rekord z danymi logowania dla nowego użytkownika
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSignup_Click(object sender, RoutedEventArgs e)
         {
 
@@ -102,6 +125,11 @@ namespace LMS
 
         }
 
+        /// <summary>
+        /// Metoda aktywowana przyciskiem - zamyka bieżące okno i kieruje nas do MainWindow
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();

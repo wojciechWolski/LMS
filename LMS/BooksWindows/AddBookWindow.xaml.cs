@@ -34,6 +34,11 @@ namespace LMS
             this.Close();
         }
 
+        /// <summary>
+        /// Metoda aktywowana przyciskiem - czyści textboxy z zawartości
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
             tbBName.Text = "";
@@ -43,6 +48,11 @@ namespace LMS
 
         }
 
+        /// <summary>
+        /// Metoda aktywowana przyciskiem - pozwala na edycję rekordu (książki) w bazie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             if(tbBName.Text == "" || tbAuthor.Text == "" || tbGenre.Text == "" || tbPublish.Text == "")

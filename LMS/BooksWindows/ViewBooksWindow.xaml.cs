@@ -22,7 +22,9 @@ namespace LMS
     public partial class ViewBooksWindow : Window
     {
         readonly string connectionString = @"Data Source=localhost;Initial Catalog=library;Integrated Security=True";
-
+        /// <summary>
+        /// Id zarządzanej książki
+        /// </summary>
         public static int BookId { get; internal set; }
 
         public ViewBooksWindow()
@@ -77,7 +79,11 @@ namespace LMS
                 this.manageGrid.Visibility = Visibility.Visible;
             }
         }
-
+        /// <summary>
+        /// Metoda aktywowana przyciskiem - po sprawdzeniu czy id książki jest poprawne, przenosi nas do okienka zarządzania
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnManageGo_Click(object sender, RoutedEventArgs e)
         {
             if (int.TryParse(tbIdManage.Text, out int bokId))

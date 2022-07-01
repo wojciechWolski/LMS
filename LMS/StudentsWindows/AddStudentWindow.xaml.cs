@@ -44,7 +44,11 @@ namespace LMS
             tbPhoneNumber.Text = "";
             tbEmail.Text = "";
         }
-
+        /// <summary>
+        /// Metoda, która po walidacji dodaje rekord studenta do bazy danych
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             if (tbFirst.Text == "" || tbLast.Text == "" || tbEnrollment.Text == "" || tbDepartment.Text == "" || tbEmail.Text == "" || tbPhoneNumber.Text == "")

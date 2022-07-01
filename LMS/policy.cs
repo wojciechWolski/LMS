@@ -9,10 +9,18 @@ namespace LMS
 {
     public class policy
     {
+
+        /// <summary>
+        /// Logika klasy walidującej złożoność haseł
+        /// </summary>
         private static int Minimum_Length = 6;
         private static int NonAlpha_length = 1;
 
-
+        /// <summary>
+        /// Parametrem jest hasło, metoda sprawdza czy jest odpowiednio długie, czy zawiera min. jedną cyfrę oraz wystarczającą liczbę znaków nienumerycznych
+        /// </summary>
+        /// <param name="Password"></param>
+        /// <returns></returns>
         public static bool IsValid(string Password)
         {
             if (Password.Length < Minimum_Length)

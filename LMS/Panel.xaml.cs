@@ -24,6 +24,12 @@ namespace LMS
             InitializeComponent();
             
         }
+
+        /// <summary>
+        /// Metoda aktywowana kliknięciem - otwiera/zamyka boczne menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (burger.IsOpen)
@@ -41,7 +47,6 @@ namespace LMS
         {
             if (MessageBox.Show("Are you sure you want to exit?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 Environment.Exit(0);
-          
             
         }
 
