@@ -39,8 +39,8 @@ namespace LMS
 
         private void exitHMI_Checked(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to exit?","Confirmation",MessageBoxButton.YesNo,MessageBoxImage.Warning)==MessageBoxResult.Yes)
-                this.Close();
+            if (MessageBox.Show("Are you sure you want to exit?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                Environment.Exit(0);
           
             
         }
