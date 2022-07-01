@@ -79,9 +79,6 @@
                             <local:HamburgerMenuItem x:Name="returnHMI" Checked="returnHMI_Checked" Unchecked="returnHMI_Unchecked">
                                 <TextBlock Text="Return/view"/>
                             </local:HamburgerMenuItem>
-                            <local:HamburgerMenuItem x:Name="detailsHMI">
-                                <TextBlock Text="Books details"/>
-                            </local:HamburgerMenuItem>
                             <local:HamburgerMenuItem x:Name="exitHMI" Checked="exitHMI_Checked">
                                 <TextBlock Text="Exit"/>
                             </local:HamburgerMenuItem>

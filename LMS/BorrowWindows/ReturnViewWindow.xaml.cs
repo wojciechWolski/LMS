@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LMS.BorrowWindows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -52,7 +53,8 @@ namespace LMS
 
         private void btnReturn_Click(object sender, RoutedEventArgs e)
         {
-
+            ReturnWindow rw = new ReturnWindow();
+            rw.Show();
         }
 
         private void btnRtnNull_Click(object sender, RoutedEventArgs e)
