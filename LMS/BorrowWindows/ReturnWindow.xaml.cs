@@ -79,6 +79,13 @@ namespace LMS.BorrowWindows
             }
         }
 
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            ReturnViewWindow rvw = new ReturnViewWindow();
+            rvw.Show();
+        }
+
         private void btnReturn_Click(object sender, RoutedEventArgs e)
         {
             if(cbRent.Text != "")
@@ -89,6 +96,8 @@ namespace LMS.BorrowWindows
                     borrow.BookReturn = DateTime.Now;
                     db.SaveChanges();
                     MessageBox.Show("Book returned successfuly!", "Confirmation", MessageBoxButton.OK, MessageBoxImage.Information);
+                    cbRent.Items.Clear();
+                    BindCombo();
                 }
             }
             else

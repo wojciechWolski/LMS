@@ -53,6 +53,7 @@ namespace LMS
 
         private void btnReturn_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             ReturnWindow rw = new ReturnWindow();
             rw.Show();
         }

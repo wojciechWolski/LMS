@@ -47,8 +47,9 @@
             </Grid>
             <Border Margin="0 10" BorderThickness="1" BorderBrush="#C4CAD0"></Border>
             <StackPanel>
-                <ComboBox Name="cbRent" Height="40" Width="200" BorderThickness="3" BorderBrush="#C4CAD0" Margin="12" Foreground="#A4969B" FontSize="15" Padding="5"/>
+                <ComboBox HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="cbRent" Height="40" Width="200" BorderThickness="3" BorderBrush="#C4CAD0" Margin="12" Foreground="#A4969B" FontSize="15" Padding="5"/>
                 <Button Name="btnReturn" Background="WhiteSmoke" Content="Return" Width="200" Height="40" BorderThickness="3" BorderBrush="#C4CAD0" Margin="10 20 10 10" Foreground="#A4969B" FontSize="15" Padding="5" Click="btnReturn_Click"></Button>
+                <Button Name="btnBack" HorizontalAlignment="Center" Background="WhiteSmoke" Content="Go back" Width="180" Height="35" BorderThickness="3" BorderBrush="#C4CAD0" Margin="10 15 10 0" Foreground="#A4969B" FontSize="15" Padding="5" Click="btnBack_Click"></Button>
 
             </StackPanel>
 

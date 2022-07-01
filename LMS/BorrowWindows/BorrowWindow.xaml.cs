@@ -88,9 +88,9 @@ namespace LMS
                     var bookcheck = from u in db.Books where u.Title == tbTitle.Text select u;
                     var stdcheck = from st in db.Students where st.EnrollmentNumber == tboxFindEnrollment.Text select st;
                     var stdlend = stdcheck.First();
-                    var booklend = bookcheck.First();
                     if (bookcheck.Count() > 0)
                     {
+                        var booklend = bookcheck.First();
                         DateTime? rtn = null;
                         db.Add(new Borrow
                         {
