@@ -151,6 +151,8 @@ namespace LMS
         {
             if (this.returnImg.Visibility == Visibility.Collapsed)
                 this.returnImg.Visibility = Visibility.Visible;
+            ReturnViewWindow rvw = new ReturnViewWindow();
+            rvw.Show();
         }
 
         private void returnHMI_Unchecked(object sender, RoutedEventArgs e)

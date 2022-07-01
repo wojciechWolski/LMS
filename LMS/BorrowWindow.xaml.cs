@@ -96,7 +96,7 @@ namespace LMS
                         {
                             BookId = booklend.Id,
                             StudentId = stdlend.Id,
-                            StudentEnroll = stdlend.EnrollmentNumber,
+                            StudentEnroll = Convert.ToInt32(stdlend.EnrollmentNumber),
                             BookTitle = booklend.Title,
                             BookLend = (DateTime)tbDate.SelectedDate,
                             BookReturn = rtn
