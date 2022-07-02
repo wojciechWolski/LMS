@@ -22,7 +22,6 @@ namespace LMS
         public Panel()
         {
             InitializeComponent();
-            
         }
 
         /// <summary>
