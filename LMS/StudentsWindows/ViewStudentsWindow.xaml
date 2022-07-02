@@ -16,7 +16,7 @@
         <ScrollViewer HorizontalScrollBarVisibility="Auto" Background="#FCF7FF" Foreground="#FCF7FF">
             <StackPanel Background="#FCF7FF">
                 <Button Name="btnClose" Padding="1" FontSize="20" Width="25" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" Click="btnClose_Click">
-                    <Image Source="C:\Users\DELL\source\repos\LMS2\LMS\Images\exit2.png"></Image>
+                    <Image Source="C:\Users\DELL\source\repos\LMS\LMS\Images\exit2.png"></Image>
                 </Button>
                 <TextBlock Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="26" FontWeight="DemiBold" FontStyle="Italic" Foreground="#A4969B">Manage students panel</TextBlock>
                 <Border Margin="0 10" BorderThickness="1" BorderBrush="#C4CAD0"></Border>

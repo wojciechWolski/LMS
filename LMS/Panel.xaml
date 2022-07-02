@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LMS"
         mc:Ignorable="d"
-                Title="Panel" Height="450" Width="800"
+                Title="Panel" Height="700" Width="1000"
         WindowStyle="none"
         ResizeMode="CanMinimize" 
-        WindowState="Maximized"
+        
         MouseDown="Window_MouseDown"
         >
     <Border CornerRadius="2" BorderBrush="black" Opacity="0.7" Background="Transparent" BorderThickness="1">
